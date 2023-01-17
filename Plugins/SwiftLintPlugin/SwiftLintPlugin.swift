@@ -34,8 +34,6 @@ struct SwiftLintPlugin: BuildToolPlugin {
             ])
         }
 
-        arguments += inputFilePaths.map(\.string)
-
         // We are not producing output files and this is needed only to not include cache files into bundle
         let outputFilesDirectory = context.pluginWorkDirectory.appending("Output")
 
@@ -81,8 +79,6 @@ extension SwiftLintPlugin: XcodeBuildToolPlugin {
                 "--config", "\(configuration.string)"
             ])
         }
-
-        arguments += inputFilePaths.map(\.string)
 
         // We are not producing output files and this is needed only to not include cache files into bundle
         let outputFilesDirectory = context.pluginWorkDirectory.appending("Output")
